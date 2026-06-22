@@ -27,8 +27,10 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 @media(max-width:767px){
   [data-hm]{display:none!important}
-  [data-stack]{flex-direction:column!important}
-  [data-fm]{width:100%!important;min-width:0!important;max-width:100%!important}
+  [data-stack]{flex-direction:column!important;gap:28px!important}
+  [data-tightstack-mobile]{gap:12px!important}
+  [data-stackm]{flex-direction:column!important;align-items:stretch!important}
+  [data-fm]{flex:0 0 auto!important;width:100%!important;min-width:0!important;max-width:100%!important}
   [data-cm]{text-align:center!important}
   [data-cim]{align-items:center!important;justify-content:center!important}
   [data-h1m]{font-size:30px!important;line-height:1.2!important}
@@ -39,13 +41,39 @@ a{text-decoration:none;color:inherit}
   [data-him]{height:260px!important}
   [data-sm]{display:flex!important}
   [data-g1m]{grid-template-columns:1fr!important}
-  [data-g2m]{grid-template-columns:1fr 1fr!important}
+  [data-g2m]{grid-template-columns:1fr!important}
+  [data-g3m]{grid-template-columns:1fr!important}
   [data-barm]{display:flex!important}
   [data-o1m]{order:-1!important}
   [data-pbm]{padding-bottom:80px!important}
   [data-gapm]{gap:16px!important}
-  [data-herom]{padding:100px 20px 64px!important}
+  [data-herom]{padding:88px 20px 56px!important;gap:22px!important}
   [data-hpm]{padding:0 16px!important}
+  [data-hide-mobile]{display:none!important}
+  [data-fullbtn]{width:100%!important;justify-content:center!important}
+  [data-cardm]{padding:28px 22px!important}
+  [data-imgcardm]{height:200px!important}
+  [data-mapm]{height:320px!important}
+  [data-footerm]{gap:28px!important;margin-bottom:36px!important}
+  [data-logom]{height:60px!important}
+  [data-floatwa]{right:16px!important;bottom:82px!important;width:52px!important;height:52px!important}
+  [data-testimonials] > *:not(:first-child){display:none!important}
+  [data-banditem]{border-right:none!important;border-bottom:1px solid rgba(143,47,104,.1)!important}
+  [data-banditem]:last-child{border-bottom:none!important}
+  [data-textblockm]{text-align:center!important}
+  [data-textblockm]{margin-top:0!important;padding-top:0!important}
+  [data-textblockm] h1,[data-textblockm] h2,[data-textblockm] h3{margin-bottom:12px!important}
+  [data-textblockm] p{margin-bottom:18px!important;line-height:1.6!important}
+  [data-imagemobile]{margin-bottom:0!important}
+  [data-cardcenter-mobile]{text-align:center!important;align-items:center!important}
+  [data-cardcenter-mobile] > div{width:100%}
+  [data-cardcenter-mobile] ul{align-items:center!important}
+  [data-cardcenter-mobile] li{text-align:left!important}
+  [data-footerlogo]{height:112px!important;margin:0 auto 20px!important}
+  [data-footerm] > div{text-align:center!important}
+  [data-footerm] > div p{margin-left:auto!important;margin-right:auto!important}
+  [data-footersocial]{justify-content:center!important}
+  [data-footerbottom]{justify-content:center!important;text-align:center!important}
 }
 @media(min-width:768px){
   [data-hd]{display:none!important}
@@ -53,14 +81,59 @@ a{text-decoration:none;color:inherit}
   [data-barm]{display:none!important}
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulseWA{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.42)}50%{box-shadow:0 8px 36px rgba(37,211,102,.68)}}
+@keyframes pulseWA{0%,100%{box-shadow:0 6px 24px rgba(126,180,87,.42)}50%{box-shadow:0 8px 36px rgba(126,180,87,.68)}}
+
+/* Scroll reveal animations */
+.animate-on-scroll{
+  opacity:0;
+  will-change:transform,opacity;
+  transition:
+    opacity .95s ease,
+    transform .95s cubic-bezier(.23,1,.32,1),
+    filter .95s ease;
+  transition-delay:var(--stagger-delay,0ms);
+}
+.animate-on-scroll.fade-up{
+  transform:translate3d(0,16px,0);
+}
+.animate-on-scroll.fade-in{
+  transform:translate3d(0,0,0);
+}
+.animate-on-scroll.zoom-in{
+  transform:translate3d(0,12px,0) scale(.985);
+  filter:saturate(.985);
+}
+.animate-on-scroll.slide-left{
+  transform:translate3d(-16px,0,0);
+}
+.animate-on-scroll.slide-right{
+  transform:translate3d(16px,0,0);
+}
+.animate-on-scroll.stagger-item{
+  transition-delay:var(--stagger-delay,0ms);
+}
+.animate-on-scroll.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .animate-on-scroll{
+    opacity:1!important;
+    transform:none!important;
+    filter:none!important;
+    transition:none!important;
+  }
+}
 </style>
 </helmet>
 
 <header style="{{ headerStyle }}">
   <div style="display:flex;align-items:center;justify-content:space-between;max-width:1200px;width:100%;margin:0 auto;padding:0 40px;height:70px;" data-hpm>
     <a href="#inicio" style="flex-shrink:0;display:flex;align-items:center;">
-      <img src="assets/logo.png" alt="Dra. Cristina Yang Young Ortodontia Curitiba" style="height:72px;width:auto;" loading="eager">
+      <img src="assets/logo.png" alt="Dra. Cristina Yang Young Ortodontia Curitiba" style="height:72px;width:auto;" loading="eager" data-logom>
     </a>
     <nav style="display:flex;align-items:center;gap:28px;" data-hm>
       <a href="#inicio" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;transition:color .18s;" style-hover="color:#8F2F68;">Início</a>
@@ -103,7 +176,7 @@ a{text-decoration:none;color:inherit}
       <a href="javascript:void(0)" onClick="{{ closeMenu }}" style="font-size:20px;font-weight:600;color:#34252A;padding:16px 0;border-bottom:1px solid #F2E4E8;cursor:default;transition:color .18s;" style-hover="color:#8F2F68;">Blog</a>
     </nav>
     <div style="display:flex;flex-direction:column;gap:12px;margin-top:36px;">
-      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;padding:16px;border-radius:50px;font-size:16px;font-weight:700;">
+      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#7EB457;color:#fff;padding:16px;border-radius:50px;font-size:16px;font-weight:700;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Agendar pelo WhatsApp
       </a>
@@ -127,8 +200,8 @@ a{text-decoration:none;color:inherit}
     <path d="M 30 520 C 110 470,240 500,290 440 S 360 360,440 400" stroke="#E2BDC8" stroke-width="1.5" fill="none" opacity=".35"/>
   </svg>
 
-  <div style="max-width:1200px;margin:0 auto;padding:88px 40px 96px;display:flex;align-items:center;gap:60px;position:relative;z-index:1;" data-stack data-herom>
-    <div style="flex:1 1 0;min-width:0;" data-fm data-cm>
+  <div style="max-width:1200px;margin:0 auto;padding:88px 40px 96px;display:flex;align-items:center;gap:60px;position:relative;z-index:1;" data-stack data-tightstack-mobile data-herom>
+    <div style="flex:1 1 0;min-width:0;" data-fm data-cm data-textblockm>
       <h1 style="font-size:50px;font-weight:800;line-height:1.1;color:#34252A;margin:0 0 20px;letter-spacing:-.025em;text-wrap:pretty;" data-h1m>
         Ortodontia em Curitiba para sorrir com mais <span style="color:#8F2F68;">conforto, estética</span> e confiança
       </h1>
@@ -136,25 +209,16 @@ a{text-decoration:none;color:inherit}
         Tratamentos com aparelho fixo, alinhador invisível e alinhadores para adultos, com atendimento humanizado e planejamento individualizado pela Dra. Cristina Yang Young, no Sítio Cercado.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;" data-cim>
-        <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:15px 28px;border-radius:50px;font-size:15px;font-weight:700;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:all .2s;" style-hover="background:#1DA851;transform:translateY(-2px);box-shadow:0 6px 26px rgba(37,211,102,.45);">
+        <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#7EB457;color:#fff;padding:15px 28px;border-radius:50px;font-size:15px;font-weight:700;box-shadow:0 4px 18px rgba(126,180,87,.3);transition:all .2s;" style-hover="background:#6FA14D;transform:translateY(-2px);box-shadow:0 6px 26px rgba(126,180,87,.45);" data-fullbtn>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Agendar avaliação pelo WhatsApp
         </a>
       </div>
     </div>
 
-    <div style="flex:0 0 420px;position:relative;" data-fm data-o1m>
+    <div style="flex:0 0 420px;position:relative;" data-fm data-o1m data-imagemobile>
       <div style="border-radius:28px;overflow:hidden;box-shadow:0 20px 60px rgba(143,47,104,.14);">
         <image-slot id="hero-main" src="assets/hero.webp" placeholder="Foto da Dra. Cristina ou paciente sorrindo com alinhador invisível" shape="rect" style="width:100%;height:500px;display:block;" data-him></image-slot>
-      </div>
-      <div style="position:absolute;bottom:-18px;left:-22px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 8px 30px rgba(143,47,104,.13);display:flex;align-items:center;gap:12px;" data-hm>
-        <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#E2BDC8,#8F2F68);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        </div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:#34252A;line-height:1.2;">Atendimento humanizado</div>
-          <div style="font-size:11px;color:#A6748D;margin-top:2px;">Planejamento individual</div>
-        </div>
       </div>
     </div>
   </div>
@@ -162,21 +226,17 @@ a{text-decoration:none;color:inherit}
 
 <section style="background:#F2E4E8;">
   <div style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;flex-wrap:wrap;" data-spm>
-    <div style="flex:1 1 220px;display:flex;align-items:center;gap:14px;padding:24px;border-right:1px solid rgba(143,47,104,.1);">
-      <div style="width:42px;height:42px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 1L9 9H1l6 5-2 8 7-5 7 5-2-8 6-5h-8z"/></svg></div>
+    <div style="flex:1 1 320px;display:flex;align-items:center;gap:14px;padding:24px;border-right:1px solid rgba(143,47,104,.1);" data-banditem>
+      <div style="width:42px;height:42px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="assets/010-braces.svg" alt="" width="20" height="20" style="display:block;filter:brightness(0) invert(1);"></div>
       <div><div style="font-size:14px;font-weight:700;color:#34252A;">Especialista em Ortodontia</div><div style="font-size:12px;color:#6C4C57;margin-top:2px;">Pós-graduada pela IPPEO</div></div>
     </div>
-    <div style="flex:1 1 220px;display:flex;align-items:center;gap:14px;padding:24px;border-right:1px solid rgba(143,47,104,.1);">
+    <div style="flex:1 1 320px;display:flex;align-items:center;gap:14px;padding:24px;border-right:1px solid rgba(143,47,104,.1);" data-banditem>
       <div style="width:42px;height:42px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
       <div><div style="font-size:14px;font-weight:700;color:#34252A;">Atendimento humanizado</div><div style="font-size:12px;color:#6C4C57;margin-top:2px;">Cuidado individualizado</div></div>
     </div>
-    <div style="flex:1 1 220px;display:flex;align-items:center;gap:14px;padding:24px;border-right:1px solid rgba(143,47,104,.1);">
+    <div style="flex:1 1 320px;display:flex;align-items:center;gap:14px;padding:24px;" data-banditem>
       <div style="width:42px;height:42px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
       <div><div style="font-size:14px;font-weight:700;color:#34252A;">Sítio Cercado, Curitiba</div><div style="font-size:12px;color:#6C4C57;margin-top:2px;">Fácil acesso e estacionamento</div></div>
-    </div>
-    <div style="flex:1 1 220px;display:flex;align-items:center;gap:14px;padding:24px;">
-      <div style="width:42px;height:42px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg></div>
-      <div><div style="font-size:14px;font-weight:700;color:#34252A;">Adultos e adolescentes</div><div style="font-size:12px;color:#6C4C57;margin-top:2px;">Em consultório próprio desde 2006</div></div>
     </div>
   </div>
 </section>
@@ -190,9 +250,9 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;" data-g1m>
-      <div style="background:#fff;border:1px solid #F2E4E8;border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 4px 24px rgba(143,47,104,.06);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-4px);box-shadow:0 12px 40px rgba(143,47,104,.12);">
+      <div style="background:#fff;border:1px solid #F2E4E8;border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 4px 24px rgba(143,47,104,.06);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-4px);box-shadow:0 12px 40px rgba(143,47,104,.12);" data-cardcenter-mobile>
         <div style="width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#F2E4E8,#E2BDC8);display:flex;align-items:center;justify-content:center;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#8F2F68"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <img src="assets/010-braces.svg" alt="" width="26" height="26" style="display:block;filter:invert(22%) sepia(28%) saturate(1505%) hue-rotate(278deg) brightness(92%) contrast(88%);">
         </div>
         <div>
           <h3 style="font-size:21px;font-weight:700;color:#34252A;margin:0 0 10px;" data-h3m>Aparelho fixo</h3>
@@ -203,9 +263,9 @@ a{text-decoration:none;color:inherit}
         </a>
       </div>
 
-      <div style="background:linear-gradient(160deg,#8F2F68,#6B1F4E);border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 8px 36px rgba(143,47,104,.25);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-4px);box-shadow:0 16px 48px rgba(143,47,104,.35);">
+      <div style="background:linear-gradient(160deg,#8F2F68,#6B1F4E);border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 8px 36px rgba(143,47,104,.25);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-4px);box-shadow:0 16px 48px rgba(143,47,104,.35);" data-cardcenter-mobile>
         <div style="width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <img src="assets/010-smile.svg" alt="" width="26" height="26" style="display:block;filter:brightness(0) invert(1);">
         </div>
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:6px;">Mais procurado</div>
@@ -217,7 +277,7 @@ a{text-decoration:none;color:inherit}
         </a>
       </div>
 
-      <div style="background:#fff;border:1px solid #F2E4E8;border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 4px 24px rgba(143,47,104,.06);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-4px);box-shadow:0 12px 40px rgba(143,47,104,.12);">
+      <div style="background:#fff;border:1px solid #F2E4E8;border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 4px 24px rgba(143,47,104,.06);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-4px);box-shadow:0 12px 40px rgba(143,47,104,.12);" data-cardcenter-mobile>
         <div style="width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#F2E4E8,#E2BDC8);display:flex;align-items:center;justify-content:center;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="#8F2F68"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
         </div>
@@ -241,10 +301,13 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(143,47,104,.1);" data-g1m>
-      <div style="background:#fff;padding:40px 36px;" data-spm>
+      <div style="background:#fff;padding:40px 36px;" data-spm data-cardm data-cardcenter-mobile>
+        <div style="margin-bottom:22px;border-radius:18px;overflow:hidden;box-shadow:0 10px 24px rgba(143,47,104,.08);background:linear-gradient(135deg,#F9F0F4,#F2E4E8);">
+          <img src="assets/ap-convencional.webp" alt="Aparelho fixo convencional" style="display:block;width:100%;height:168px;object-fit:cover;object-position:center;" data-imgcardm>
+        </div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
           <div style="width:44px;height:44px;border-radius:12px;background:#F2E4E8;display:flex;align-items:center;justify-content:center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#C089A7"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+            <img src="assets/010-braces.svg" alt="" width="22" height="22" style="display:block;filter:invert(71%) sepia(18%) saturate(698%) hue-rotate(279deg) brightness(84%) contrast(84%);">
           </div>
           <h3 style="font-size:20px;font-weight:700;color:#34252A;margin:0;" data-h3m>Aparelho fixo</h3>
         </div>
@@ -255,10 +318,13 @@ a{text-decoration:none;color:inherit}
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#6C4C57;line-height:1.5;"><span style="width:20px;height:20px;border-radius:50%;background:#F2E4E8;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#8F2F68"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>Pode ser convencional ou estético</li>
         </ul>
       </div>
-      <div style="background:#8F2F68;padding:40px 36px;" data-spm>
+      <div style="background:#8F2F68;padding:40px 36px;" data-spm data-cardm data-cardcenter-mobile>
+        <div style="margin-bottom:22px;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px rgba(35,8,22,.22);border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06));">
+          <img src="assets/ap-invisivel.webp" alt="Alinhador invisível" style="display:block;width:100%;height:168px;object-fit:cover;object-position:center;" data-imgcardm>
+        </div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
           <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            <img src="assets/010-smile.svg" alt="" width="22" height="22" style="display:block;filter:brightness(0) invert(1);">
           </div>
           <h3 style="font-size:20px;font-weight:700;color:#fff;margin:0;" data-h3m>Alinhador invisível</h3>
         </div>
@@ -273,7 +339,7 @@ a{text-decoration:none;color:inherit}
 
     <div style="text-align:center;margin-top:40px;">
       <p style="font-size:15px;color:#6C4C57;margin:0 0 20px;font-style:italic;">"A melhor escolha depende da avaliação clínica, objetivos do tratamento e características de cada sorriso."</p>
-      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#8F2F68;color:#fff;padding:14px 30px;border-radius:50px;font-size:15px;font-weight:700;transition:all .2s;" style-hover="background:#7A2458;transform:translateY(-2px);">
+      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#7EB457;color:#fff;padding:14px 30px;border-radius:50px;font-size:15px;font-weight:700;transition:all .2s;" style-hover="background:#6FA14D;transform:translateY(-2px);" data-fullbtn>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Descobrir a melhor opção para mim
       </a>
@@ -282,8 +348,8 @@ a{text-decoration:none;color:inherit}
 </section>
 
 <section id="sobre" style="background:#fff;">
-  <div style="max-width:1200px;margin:0 auto;padding:96px 40px;display:flex;align-items:center;gap:72px;" data-stack data-pm>
-    <div style="flex:0 0 400px;position:relative;" data-fm>
+  <div style="max-width:1200px;margin:0 auto;padding:96px 40px;display:flex;align-items:center;gap:72px;" data-stack data-tightstack-mobile data-pm>
+    <div style="flex:0 0 400px;position:relative;" data-fm data-imagemobile>
       <div style="border-radius:28px;overflow:hidden;box-shadow:0 20px 56px rgba(143,47,104,.12);">
         <image-slot id="sobre-foto" src="assets/sobre.webp" placeholder="Foto da Dra. Cristina Yang Young - ortodontista em Curitiba" shape="rect" style="width:100%;height:500px;display:block;" data-him></image-slot>
       </div>
@@ -294,7 +360,7 @@ a{text-decoration:none;color:inherit}
       </svg>
     </div>
 
-    <div style="flex:1 1 0;min-width:0;" data-fm>
+    <div style="flex:1 1 0;min-width:0;" data-fm data-textblockm>
       <span style="display:inline-block;background:#F2E4E8;color:#8F2F68;padding:5px 16px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px;">Sobre</span>
       <h2 style="font-size:36px;font-weight:800;color:#34252A;margin:0 0 20px;letter-spacing:-.02em;text-wrap:pretty;" data-h2m>Dra. Cristina Yang Young</h2>
       <p style="font-size:16px;line-height:1.78;color:#6C4C57;margin:0 0 18px;">A Dra. Cristina Yang Young acredita que cada sorriso carrega uma história. Sua missão é promover saúde bucal, autoestima e qualidade de vida por meio de um atendimento ético, acolhedor e individualizado.</p>
@@ -326,8 +392,8 @@ a{text-decoration:none;color:inherit}
     <circle cx="150" cy="150" r="140" fill="none" stroke="#8F2F68" stroke-width="3"/>
     <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" fill="#8F2F68" font-size="120" font-style="italic" font-family="Georgia,serif">cy</text>
   </svg>
-  <div style="max-width:1200px;margin:0 auto;padding:96px 40px;position:relative;z-index:1;display:flex;gap:72px;align-items:center;" data-stack data-pm>
-    <div style="flex:0 0 380px;" data-fm>
+  <div style="max-width:1200px;margin:0 auto;padding:96px 40px;position:relative;z-index:1;display:flex;gap:72px;align-items:center;" data-stack data-tightstack-mobile data-pm>
+    <div style="flex:0 0 380px;" data-fm data-textblockm>
       <span style="display:inline-block;background:rgba(143,47,104,.12);color:#8F2F68;padding:5px 16px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:20px;">Formação</span>
       <h2 style="font-size:34px;font-weight:800;color:#34252A;margin:0 0 16px;letter-spacing:-.02em;" data-h2m>Formação e experiência</h2>
       <p style="font-size:15px;line-height:1.72;color:#6C4C57;margin:0;">Comprometida com a excelência e a atualização contínua para oferecer tratamentos seguros e eficazes.</p>
@@ -335,15 +401,15 @@ a{text-decoration:none;color:inherit}
     <div style="flex:1 1 0;min-width:0;" data-fm>
       <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;">
         <li style="display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(143,47,104,.12);">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
           <div><div style="font-size:15px;font-weight:600;color:#34252A;margin-bottom:3px;">Graduada em Odontologia</div><div style="font-size:13px;color:#6C4C57;">Universidade Federal do Paraná</div></div>
         </li>
         <li style="display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(143,47,104,.12);">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 1L9 9H1l6 5-2 8 7-5 7 5-2-8 6-5h-8z"/></svg></div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
           <div><div style="font-size:15px;font-weight:600;color:#34252A;margin-bottom:3px;">Especialista em Ortodontia</div><div style="font-size:13px;color:#6C4C57;">Pós-graduada pela Faculdade IPPEO</div></div>
         </li>
         <li style="display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(143,47,104,.12);">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><img src="assets/008-white-teeth.svg" alt="" style="width:18px;height:18px;filter:brightness(0) invert(1);" loading="lazy"></div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
           <div><div style="font-size:15px;font-weight:600;color:#34252A;margin-bottom:3px;">Curso Avançado em Ortodontia</div><div style="font-size:13px;color:#6C4C57;">Para especialistas - atualização contínua</div></div>
         </li>
         <li style="display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(143,47,104,.12);">
@@ -351,7 +417,7 @@ a{text-decoration:none;color:inherit}
           <div><div style="font-size:15px;font-weight:600;color:#34252A;margin-bottom:3px;">Credenciamento Myobrace™</div><div style="font-size:13px;color:#6C4C57;">Sistema preventivo e interceptivo</div></div>
         </li>
         <li style="display:flex;align-items:flex-start;gap:16px;padding:20px 0;">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#8F2F68;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
           <div><div style="font-size:15px;font-weight:600;color:#34252A;margin-bottom:3px;">Consultório próprio desde 2006</div><div style="font-size:13px;color:#6C4C57;">Sítio Cercado, Curitiba - PR</div></div>
         </li>
       </ul>
@@ -367,25 +433,25 @@ a{text-decoration:none;color:inherit}
       <p style="font-size:15px;line-height:1.72;color:#6C4C57;max-width:520px;margin:0 auto;">Além da ortodontia, a clínica oferece tratamentos complementares para a saúde bucal completa.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;" data-g2m>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);">
+      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
         <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/008-white-teeth.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Clareamento dental</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Tratamento para clarear os dentes com segurança, respeitando a saúde do esmalte e a sensibilidade de cada paciente.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);">
+      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
         <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/009-implants.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Implante dentário</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Solução para reabilitar dentes perdidos com naturalidade e funcionalidade, planejada de forma individualizada.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);">
+      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
         <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/004-dentist.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Odontologia preventiva</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Consultas periódicas, limpeza, avaliação e orientação para manter a saúde bucal ao longo do tempo.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);">
+      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
         <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/015-doctor-3.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Harmonização orofacial</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Procedimentos faciais para harmonia e bem-estar, realizados com segurança e planejamento estético individualizado.</p>
@@ -395,7 +461,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<section style="background:#34252A;">
+<section style="background:#872A68;">
   <div style="max-width:1200px;margin:0 auto;padding:96px 40px;" data-pm>
     <div style="text-align:center;margin-bottom:48px;">
       <span style="display:inline-block;background:rgba(242,228,232,.12);color:#E2BDC8;padding:5px 16px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px;">Nosso Espaço</span>
@@ -423,11 +489,11 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <div style="max-width:1120px;margin:0 auto;">
-      <div style="display:flex;align-items:center;gap:16px;" data-gapm>
-        <button onClick="{{ prevTestimonial }}" aria-label="Avaliação anterior" style="width:46px;height:46px;flex:0 0 46px;border-radius:50%;border:1px solid #E2BDC8;background:#fff;color:#8F2F68;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(143,47,104,.08);transition:all .2s;" style-hover="background:#8F2F68;color:#fff;transform:translateY(-1px);">
+      <div style="display:flex;align-items:center;gap:16px;" data-gapm data-stackm>
+        <button onClick="{{ prevTestimonial }}" aria-label="Avaliação anterior" style="width:46px;height:46px;flex:0 0 46px;border-radius:50%;border:1px solid #E2BDC8;background:#fff;color:#8F2F68;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(143,47,104,.08);transition:all .2s;" style-hover="background:#8F2F68;color:#fff;transform:translateY(-1px);" data-hide-mobile>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
         </button>
-        <div style="flex:1;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;">
+        <div style="flex:1;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;" data-g3m data-testimonials>
           <sc-for list="{{ visibleTestimonials }}" as="t" hint-placeholder-count="3">
             <div style="background:#FAFAFA;border:1px solid #F2E4E8;border-radius:24px;padding:24px 22px;display:flex;flex-direction:column;gap:16px;min-height:280px;box-shadow:0 10px 30px rgba(143,47,104,.08);">
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;">
@@ -452,7 +518,7 @@ a{text-decoration:none;color:inherit}
             </div>
           </sc-for>
         </div>
-        <button onClick="{{ nextTestimonial }}" aria-label="Próxima avaliação" style="width:46px;height:46px;flex:0 0 46px;border-radius:50%;border:1px solid #E2BDC8;background:#fff;color:#8F2F68;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(143,47,104,.08);transition:all .2s;" style-hover="background:#8F2F68;color:#fff;transform:translateY(-1px);">
+        <button onClick="{{ nextTestimonial }}" aria-label="Próxima avaliação" style="width:46px;height:46px;flex:0 0 46px;border-radius:50%;border:1px solid #E2BDC8;background:#fff;color:#8F2F68;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(143,47,104,.08);transition:all .2s;" style-hover="background:#8F2F68;color:#fff;transform:translateY(-1px);" data-hide-mobile>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
         </button>
       </div>
@@ -463,7 +529,7 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
     <div style="text-align:center;margin-top:32px;">
-      <a href="https://www.google.com/maps/place/Dra.+Cristina+Yang+Young+-+Alinhadores+Transparentes+em+Curitiba/@-25.5414614,-49.2587797,17z/data=!4m8!3m7!1s0x94dcfbb90e3be52f:0xeeca2ad9f7b067b4!8m2!3d-25.5414614!4d-49.2587797!9m1!1b1!16s%2Fg%2F1wb8vvf2?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#8F2F68;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;transition:all .2s;" style-hover="background:#7A2458;transform:translateY(-2px);">
+      <a href="https://www.google.com/maps/place/Dra.+Cristina+Yang+Young+-+Alinhadores+Transparentes+em+Curitiba/@-25.5414614,-49.2587797,17z/data=!4m8!3m7!1s0x94dcfbb90e3be52f:0xeeca2ad9f7b067b4!8m2!3d-25.5414614!4d-49.2587797!9m1!1b1!16s%2Fg%2F1wb8vvf2?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#8F2F68;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;transition:all .2s;" style-hover="background:#7A2458;transform:translateY(-2px);" data-fullbtn>
         Ver mais avaliações
       </a>
     </div>
@@ -496,7 +562,7 @@ a{text-decoration:none;color:inherit}
 
     <div style="text-align:center;margin-top:48px;">
       <p style="font-size:15px;color:#6C4C57;margin:0 0 20px;">Não encontrou o que procurava? Entre em contato e tire suas dúvidas.</p>
-      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;box-shadow:0 4px 18px rgba(37,211,102,.28);transition:all .2s;" style-hover="background:#1DA851;transform:translateY(-2px);">
+      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#7EB457;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;box-shadow:0 4px 18px rgba(126,180,87,.28);transition:all .2s;" style-hover="background:#6FA14D;transform:translateY(-2px);" data-fullbtn>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar com a Dra. Cristina
       </a>
@@ -534,25 +600,25 @@ a{text-decoration:none;color:inherit}
         </div>
       </div>
 
-      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;box-shadow:0 4px 18px rgba(37,211,102,.28);transition:all .2s;" style-hover="background:#1DA851;transform:translateY(-2px);">
+      <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#7EB457;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;box-shadow:0 4px 18px rgba(126,180,87,.28);transition:all .2s;" style-hover="background:#6FA14D;transform:translateY(-2px);" data-fullbtn>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Agendar pelo WhatsApp
       </a>
     </div>
 
     <div style="flex:1 1 0;min-width:0;" data-fm>
-      <iframe src="https://www.google.com/maps?q=Dra.+Cristina+Yang+Young+-+Alinhadores+Transparentes+em+Curitiba&output=embed" style="width:100%;height:480px;border:0;border-radius:20px;box-shadow:0 8px 32px rgba(143,47,104,.1);" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Dra. Cristina Yang Young - Sítio Cercado, Curitiba"></iframe>
+      <iframe src="https://www.google.com/maps?q=Dra.+Cristina+Yang+Young+-+Alinhadores+Transparentes+em+Curitiba&output=embed" style="width:100%;height:480px;border:0;border-radius:20px;box-shadow:0 8px 32px rgba(143,47,104,.1);" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Dra. Cristina Yang Young - Sítio Cercado, Curitiba" data-mapm></iframe>
     </div>
   </div>
 </section>
 
 <footer style="background:#2A1A20;" data-pbm>
   <div style="max-width:1200px;margin:0 auto;padding:72px 40px 40px;" data-spm>
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;" data-g2m>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;" data-g2m data-footerm>
       <div>
-        <img src="assets/logo.png" alt="Logo Dra. Cristina Yang Young" style="height:88px;width:auto;margin-bottom:20px;border-radius:8px;" loading="lazy">
+        <img src="assets/logo.png" alt="Logo Dra. Cristina Yang Young" style="height:88px;width:auto;margin-bottom:20px;border-radius:8px;" loading="lazy" data-footerlogo>
         <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);margin:0 0 20px;max-width:280px;">Odontologia e Ortodontia no bairro Sítio Cercado em Curitiba. Atendimento humanizado desde 2006.</p>
-        <div style="display:flex;gap:12px;">
+        <div style="display:flex;gap:12px;" data-footersocial>
           <a href="https://www.instagram.com/dracristinayangyoung" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:background .18s;" style-hover="background:#8F2F68;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
@@ -587,19 +653,19 @@ a{text-decoration:none;color:inherit}
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;" data-footerbottom>
       <span style="font-size:12px;color:rgba(255,255,255,.3);">© 2025 Dra. Cristina Yang Young - Todos os direitos reservados.</span>
       <span style="font-size:12px;color:rgba(255,255,255,.3);">Desenvolvido por SuperDental</span>
     </div>
   </div>
 </footer>
 
-<a href="{{ WA }}" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp" style="position:fixed;bottom:90px;right:24px;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.4);animation:pulseWA 2.5s ease infinite;transition:transform .18s;" style-hover="transform:scale(1.1);">
+<a href="{{ WA }}" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp" style="position:fixed;bottom:90px;right:24px;z-index:900;width:56px;height:56px;border-radius:50%;background:#7EB457;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(126,180,87,.4);animation:pulseWA 2.5s ease infinite;transition:transform .18s;" style-hover="transform:scale(1.1);" data-floatwa data-hide-mobile>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <div data-barm style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:890;background:#fff;border-top:1px solid #F2E4E8;padding:10px 16px;gap:10px;">
-  <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:13px;border-radius:50px;font-size:14px;font-weight:700;">
+  <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#7EB457;color:#fff;padding:13px;border-radius:50px;font-size:14px;font-weight:700;">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Agendar pelo WhatsApp
   </a>
@@ -714,6 +780,173 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script>
+(() => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let intersectionObserver = null;
+  let mutationObserver = null;
+  let mutationFrame = null;
+
+  const animationGroups = [
+    { selector: 'section h1, section h2, section h3, footer h1, footer h2, footer h3', type: 'heading' },
+    { selector: 'section p, footer p', type: 'text' },
+    { selector: 'section image-slot, section iframe, section img[alt]:not([alt=""]):not([src*="logo"])', type: 'media' },
+    { selector: 'section [data-g1m] > div, section [data-g2m] > div, section [data-g3m] > div, section [data-spm] > div, section [data-testimonials] > div, footer [data-footerm] > div', type: 'block' },
+    { selector: 'section a[style*="border-radius:50px"], section button, footer a[style*="border-radius:50px"]', type: 'button' },
+    { selector: 'section li, footer nav a, footer span', type: 'item' },
+  ];
+
+  const sectionEffectCycle = [
+    { heading: 'fade-up', block: 'fade-up', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
+    { heading: 'slide-right', block: 'slide-right', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
+    { heading: 'slide-left', block: 'slide-left', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
+    { heading: 'fade-up', block: 'slide-right', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
+    { heading: 'fade-up', block: 'slide-left', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
+  ];
+
+  const staggerGroups = [
+    'section ul',
+    'section ol',
+    '[data-spm]',
+    '[data-g1m]',
+    '[data-g2m]',
+    '[data-g3m]',
+    '[data-testimonials]',
+    'footer nav',
+    'footer [data-footerm]',
+  ];
+
+  function getSectionIndex(element) {
+    const section = element.closest('section, footer');
+    if (!section) return 0;
+
+    const sections = Array.from(document.querySelectorAll('section, footer'));
+    const index = sections.indexOf(section);
+    return index >= 0 ? index : 0;
+  }
+
+  function getEffectForType(element, type) {
+    const sectionIndex = getSectionIndex(element);
+    const sectionProfile = sectionEffectCycle[sectionIndex % sectionEffectCycle.length];
+    return sectionProfile[type] || 'fade-up';
+  }
+
+  function getEffectForElement(element) {
+    if (element.matches('image-slot, iframe, img')) return getEffectForType(element, 'media');
+    if (element.matches('li, span, nav a')) return getEffectForType(element, 'item');
+    if (element.matches('p')) return getEffectForType(element, 'text');
+    if (element.matches('a, button')) return getEffectForType(element, 'button');
+    if (element.matches('h1, h2, h3')) return getEffectForType(element, 'heading');
+    return getEffectForType(element, 'block');
+  }
+
+  function registerAnimatedElement(element, effect) {
+    if (!(element instanceof Element) || element.dataset.scrollRevealReady === 'true') return;
+
+    element.dataset.scrollRevealReady = 'true';
+    element.classList.add('animate-on-scroll', effect);
+
+    if (prefersReducedMotion.matches) {
+      element.classList.add('is-visible');
+      return;
+    }
+
+    if (intersectionObserver) {
+      intersectionObserver.observe(element);
+    }
+  }
+
+  function observePendingAnimatedElements() {
+    if (!intersectionObserver || prefersReducedMotion.matches) return;
+
+    document.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach((element) => {
+      intersectionObserver.observe(element);
+    });
+  }
+
+  function applyAnimations(root = document) {
+    animationGroups.forEach(({ selector, type }) => {
+      root.querySelectorAll(selector).forEach((element) => registerAnimatedElement(element, getEffectForType(element, type)));
+    });
+
+    staggerGroups.forEach((selector) => {
+      root.querySelectorAll(selector).forEach((group) => {
+        const items = Array.from(group.children).filter((child) => child instanceof Element);
+
+        items.forEach((item, index) => {
+          if (!item.dataset.scrollRevealReady) {
+            registerAnimatedElement(item, getEffectForElement(item));
+          }
+
+          item.classList.add('stagger-item');
+          item.style.setProperty('--stagger-delay', `${Math.min(index, 8) * 65}ms`);
+        });
+      });
+    });
+  }
+
+  function revealImmediately() {
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+      element.classList.add('is-visible');
+    });
+  }
+
+  function initObservers() {
+    if (prefersReducedMotion.matches) {
+      revealImmediately();
+      return;
+    }
+
+    intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add('is-visible');
+        intersectionObserver.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -6% 0px',
+    });
+
+    applyAnimations();
+    observePendingAnimatedElements();
+
+    mutationObserver = new MutationObserver(() => {
+      if (mutationFrame) return;
+
+      mutationFrame = window.requestAnimationFrame(() => {
+        mutationFrame = null;
+        applyAnimations();
+        observePendingAnimatedElements();
+      });
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  function bootstrapScrollAnimations() {
+    initObservers();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrapScrollAnimations, { once: true });
+  } else {
+    bootstrapScrollAnimations();
+  }
+
+  prefersReducedMotion.addEventListener('change', (event) => {
+    if (!event.matches) return;
+
+    if (intersectionObserver) intersectionObserver.disconnect();
+    if (mutationObserver) mutationObserver.disconnect();
+    revealImmediately();
+  });
+})();
 </script>
 </body>
 </html>
