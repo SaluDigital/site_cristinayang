@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="./support.js" defer></script>
 <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
 <body>
@@ -12,19 +12,23 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
-<script src="image-slot.js"></script>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 <meta name="description" content="Tratamentos com aparelho fixo, alinhador invisível e ortodontia para adultos em Curitiba. Atendimento humanizado com a Dra. Cristina Yang Young no Sítio Cercado.">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ortodontia em Curitiba | Dra. Cristina Yang Young</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Dra. Cristina Yang Young - Odontologia e Ortodontia","url":"https://dracristinayangyoung.com.br","telephone":"+55-41-3289-7652","address":{"@type":"PostalAddress","streetAddress":"R. Ourizona, 2200","addressLocality":"Curitiba","addressRegion":"PR","postalCode":"81920-620","addressCountry":"BR"},"medicalSpecialty":"Orthodontics","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"12:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"14:00","closes":"18:00"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto custa o tratamento com alinhadores?","acceptedAnswer":{"@type":"Answer","text":"Depende de uma previsão de tempo de tratamento e complexidade do caso, pois isso define a quantidade de alinhadores necessários. Na consulta é informado o valor."}},{"@type":"Question","name":"Alinhador invisível funciona para todos os casos?","acceptedAnswer":{"@type":"Answer","text":"A maioria dos casos pode ser tratada com os alinhadores. Com a avaliação clínica, análise da mordida e alinhamento das expectativas do paciente, indico a melhor opção para você."}},{"@type":"Question","name":"Adulto pode usar aparelho ortodôntico?","acceptedAnswer":{"@type":"Answer","text":"Sim. Muitos adultos podem realizar tratamento ortodôntico, seja com aparelho fixo ou alinhadores transparentes. A escolha depende da saúde bucal e do planejamento individual."}},{"@type":"Question","name":"Qual a diferença entre aparelho fixo e alinhador invisível?","acceptedAnswer":{"@type":"Answer","text":"O aparelho fixo permanece colado aos dentes durante o tratamento, enquanto o alinhador invisível é removível e transparente. Cada opção tem indicações específicas."}},{"@type":"Question","name":"Quanto tempo dura um tratamento ortodôntico?","acceptedAnswer":{"@type":"Answer","text":"O tempo varia conforme cada caso, tipo de movimentação necessária, idade do paciente e colaboração durante o tratamento."}},{"@type":"Question","name":"O alinhador invisível atrapalha a fala?","acceptedAnswer":{"@type":"Answer","text":"Alguns pacientes podem sentir uma adaptação inicial nos primeiros dias, mas a tendência é que a fala se ajuste naturalmente com o uso contínuo."}},{"@type":"Question","name":"Onde encontrar ortodontista no Sítio Cercado, Curitiba?","acceptedAnswer":{"@type":"Answer","text":"A Dra. Cristina Yang Young atende no bairro Sítio Cercado, em Curitiba, com foco em ortodontia, aparelho fixo, alinhadores invisíveis e cuidado odontológico humanizado."}}]}</script>
 <style>
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 body{margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#34252A;overflow-x:hidden;background:#fff}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
+[style*="transition:"]{transition:none!important}
+[style*="animation:"]{animation:none!important}
+section:nth-of-type(n+3),footer{content-visibility:auto;contain-intrinsic-size:900px}
 @media(max-width:767px){
   [data-hm]{display:none!important}
   [data-stack]{flex-direction:column!important;gap:28px!important}
@@ -39,6 +43,8 @@ a{text-decoration:none;color:inherit}
   [data-pm]{padding:72px 20px!important}
   [data-spm]{padding:52px 20px!important}
   [data-him]{height:260px!important}
+  [data-heroimg]{object-position:center 22%!important}
+  [data-aboutimg]{object-position:center top!important}
   [data-sm]{display:flex!important}
   [data-g1m]{grid-template-columns:1fr!important}
   [data-g2m]{grid-template-columns:1fr!important}
@@ -47,7 +53,7 @@ a{text-decoration:none;color:inherit}
   [data-o1m]{order:-1!important}
   [data-pbm]{padding-bottom:80px!important}
   [data-gapm]{gap:16px!important}
-  [data-herom]{padding:88px 20px 56px!important;gap:22px!important}
+  [data-herom]{padding:28px 20px 56px!important;gap:22px!important}
   [data-hpm]{padding:0 16px!important}
   [data-hide-mobile]{display:none!important}
   [data-fullbtn]{width:100%!important;justify-content:center!important}
@@ -67,65 +73,20 @@ a{text-decoration:none;color:inherit}
   [data-imagemobile]{margin-bottom:0!important}
   [data-cardcenter-mobile]{text-align:center!important;align-items:center!important}
   [data-cardcenter-mobile] > div{width:100%}
-  [data-cardcenter-mobile] ul{align-items:center!important}
+  [data-cardcenter-mobile] ul{align-items:stretch!important;width:100%!important}
   [data-cardcenter-mobile] li{text-align:left!important}
   [data-footerlogo]{height:112px!important;margin:0 auto 20px!important}
   [data-footerm] > div{text-align:center!important}
   [data-footerm] > div p{margin-left:auto!important;margin-right:auto!important}
   [data-footersocial]{justify-content:center!important}
   [data-footerbottom]{justify-content:center!important;text-align:center!important}
+  [data-treatment-grid]{grid-template-columns:1fr!important;gap:16px!important}
+  [data-treatment-card]{grid-column:auto!important;min-height:auto!important;width:100%!important}
 }
 @media(min-width:768px){
   [data-hd]{display:none!important}
   [data-sm]{display:none!important}
   [data-barm]{display:none!important}
-}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulseWA{0%,100%{box-shadow:0 6px 24px rgba(126,180,87,.42)}50%{box-shadow:0 8px 36px rgba(126,180,87,.68)}}
-
-/* Scroll reveal animations */
-.animate-on-scroll{
-  opacity:0;
-  will-change:transform,opacity;
-  transition:
-    opacity .95s ease,
-    transform .95s cubic-bezier(.23,1,.32,1),
-    filter .95s ease;
-  transition-delay:var(--stagger-delay,0ms);
-}
-.animate-on-scroll.fade-up{
-  transform:translate3d(0,16px,0);
-}
-.animate-on-scroll.fade-in{
-  transform:translate3d(0,0,0);
-}
-.animate-on-scroll.zoom-in{
-  transform:translate3d(0,12px,0) scale(.985);
-  filter:saturate(.985);
-}
-.animate-on-scroll.slide-left{
-  transform:translate3d(-16px,0,0);
-}
-.animate-on-scroll.slide-right{
-  transform:translate3d(16px,0,0);
-}
-.animate-on-scroll.stagger-item{
-  transition-delay:var(--stagger-delay,0ms);
-}
-.animate-on-scroll.is-visible{
-  opacity:1;
-  transform:translate3d(0,0,0) scale(1);
-  filter:none;
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  .animate-on-scroll{
-    opacity:1!important;
-    transform:none!important;
-    filter:none!important;
-    transition:none!important;
-  }
 }
 </style>
 </helmet>
@@ -133,7 +94,7 @@ a{text-decoration:none;color:inherit}
 <header style="{{ headerStyle }}">
   <div style="display:flex;align-items:center;justify-content:space-between;max-width:1200px;width:100%;margin:0 auto;padding:0 40px;height:70px;" data-hpm>
     <a href="#inicio" style="flex-shrink:0;display:flex;align-items:center;">
-      <img src="assets/logo.png" alt="Dra. Cristina Yang Young Ortodontia Curitiba" style="height:72px;width:auto;" loading="eager" data-logom>
+      <img src="assets/logo.png" alt="Dra. Cristina Yang Young Ortodontia Curitiba" style="height:72px;width:auto;" width="512" height="512" loading="eager" fetchpriority="high" decoding="async" data-logom>
     </a>
     <nav style="display:flex;align-items:center;gap:28px;" data-hm>
       <a href="#inicio" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;transition:color .18s;" style-hover="color:#8F2F68;">Início</a>
@@ -142,7 +103,7 @@ a{text-decoration:none;color:inherit}
       <a href="#sobre" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;transition:color .18s;" style-hover="color:#8F2F68;">Sobre</a>
       <a href="#depoimentos" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;transition:color .18s;" style-hover="color:#8F2F68;">Depoimentos</a>
       <a href="#contato" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;transition:color .18s;" style-hover="color:#8F2F68;">Localização</a>
-      <a href="javascript:void(0)" aria-disabled="true" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;cursor:default;transition:color .18s;" style-hover="color:#8F2F68;">Blog</a>
+      <span aria-disabled="true" style="font-size:14px;font-weight:500;color:#6C4C57;letter-spacing:.02em;cursor:default;">Blog</span>
     </nav>
     <div style="display:flex;align-items:center;gap:14px;" data-hm>
       <a href="https://www.instagram.com/dracristinayangyoung" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color:#C089A7;display:flex;transition:color .18s;" style-hover="color:#8F2F68;">
@@ -161,7 +122,7 @@ a{text-decoration:none;color:inherit}
 <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;background:#fff;display:flex;flex-direction:column;padding:0 28px 40px;overflow-y:auto;">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 28px;">
-      <img src="assets/logo.png" alt="Logo" style="height:60px;width:auto;" loading="lazy">
+      <img src="assets/logo.png" alt="Logo" style="height:60px;width:auto;" width="512" height="512" loading="lazy" decoding="async">
       <button onClick="{{ closeMenu }}" style="background:none;border:none;cursor:pointer;color:#8F2F68;display:flex;" aria-label="Fechar menu">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
       </button>
@@ -173,7 +134,7 @@ a{text-decoration:none;color:inherit}
       <a href="#sobre" onClick="{{ closeMenu }}" style="font-size:20px;font-weight:600;color:#34252A;padding:16px 0;border-bottom:1px solid #F2E4E8;transition:color .18s;" style-hover="color:#8F2F68;">Sobre</a>
       <a href="#depoimentos" onClick="{{ closeMenu }}" style="font-size:20px;font-weight:600;color:#34252A;padding:16px 0;border-bottom:1px solid #F2E4E8;transition:color .18s;" style-hover="color:#8F2F68;">Depoimentos</a>
       <a href="#contato" onClick="{{ closeMenu }}" style="font-size:20px;font-weight:600;color:#34252A;padding:16px 0;border-bottom:1px solid #F2E4E8;transition:color .18s;" style-hover="color:#8F2F68;">Localização</a>
-      <a href="javascript:void(0)" onClick="{{ closeMenu }}" style="font-size:20px;font-weight:600;color:#34252A;padding:16px 0;border-bottom:1px solid #F2E4E8;cursor:default;transition:color .18s;" style-hover="color:#8F2F68;">Blog</a>
+      <span aria-disabled="true" style="font-size:20px;font-weight:600;color:#34252A;padding:16px 0;border-bottom:1px solid #F2E4E8;cursor:default;">Blog</span>
     </nav>
     <div style="display:flex;flex-direction:column;gap:12px;margin-top:36px;">
       <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#7EB457;color:#fff;padding:16px;border-radius:50px;font-size:16px;font-weight:700;">
@@ -188,6 +149,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </sc-if>
 
+<main id="conteudo-principal">
 <section id="inicio" style="background:linear-gradient(145deg,#fff 55%,#F9F0F4 100%);position:relative;overflow:hidden;padding-top:70px;">
   <svg style="position:absolute;top:0;right:0;width:50%;height:100%;pointer-events:none;" viewBox="0 0 560 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
@@ -218,7 +180,7 @@ a{text-decoration:none;color:inherit}
 
     <div style="flex:0 0 420px;position:relative;" data-fm data-o1m data-imagemobile>
       <div style="border-radius:28px;overflow:hidden;box-shadow:0 20px 60px rgba(143,47,104,.14);">
-        <image-slot id="hero-main" src="assets/hero.webp" placeholder="Foto da Dra. Cristina ou paciente sorrindo com alinhador invisível" shape="rect" style="width:100%;height:500px;display:block;" data-him></image-slot>
+        <img src="assets/hero.webp" alt="Foto da Dra. Cristina ou paciente sorrindo com alinhador invisível" style="width:100%;height:500px;display:block;object-fit:cover;" width="480" height="640" loading="eager" fetchpriority="high" decoding="async" data-him data-heroimg>
       </div>
     </div>
   </div>
@@ -291,7 +253,7 @@ a{text-decoration:none;color:inherit}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(143,47,104,.1);" data-g1m>
       <div style="background:#fff;padding:40px 36px;" data-spm data-cardm data-cardcenter-mobile>
         <div style="margin-bottom:22px;border-radius:18px;overflow:hidden;box-shadow:0 10px 24px rgba(143,47,104,.08);background:linear-gradient(135deg,#F9F0F4,#F2E4E8);">
-          <img src="assets/ap-convencional.webp" alt="Aparelho fixo convencional" style="display:block;width:100%;height:168px;object-fit:cover;object-position:center;" data-imgcardm>
+          <img src="assets/ap-convencional.webp" alt="Aparelho fixo convencional" style="display:block;width:100%;height:168px;object-fit:cover;object-position:center;" width="1672" height="941" loading="lazy" decoding="async" data-imgcardm>
         </div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
           <div style="width:44px;height:44px;border-radius:12px;background:#F2E4E8;display:flex;align-items:center;justify-content:center;">
@@ -308,7 +270,7 @@ a{text-decoration:none;color:inherit}
       </div>
       <div style="background:#8F2F68;padding:40px 36px;" data-spm data-cardm data-cardcenter-mobile>
         <div style="margin-bottom:22px;border-radius:18px;overflow:hidden;box-shadow:0 14px 30px rgba(35,8,22,.22);border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06));">
-          <img src="assets/ap-invisivel.webp" alt="Alinhador invisível" style="display:block;width:100%;height:168px;object-fit:cover;object-position:center;" data-imgcardm>
+          <img src="assets/ap-invisivel.webp" alt="Alinhador invisível" style="display:block;width:100%;height:168px;object-fit:cover;object-position:center;" width="1672" height="941" loading="lazy" decoding="async" data-imgcardm>
         </div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
           <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;">
@@ -319,7 +281,7 @@ a{text-decoration:none;color:inherit}
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;">
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,.88);line-height:1.5;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>Discreto e removível</li>
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,.88);line-height:1.5;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>Facilita alimentação e higiene</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,.88);line-height:1.5;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>Pode ser confortável para adultos</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,.88);line-height:1.5;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>Confortável e prático</li>
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;color:rgba(255,255,255,.88);line-height:1.5;"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>Depende de avaliação e disciplina</li>
         </ul>
       </div>
@@ -339,7 +301,7 @@ a{text-decoration:none;color:inherit}
   <div style="max-width:1200px;margin:0 auto;padding:96px 40px;display:flex;align-items:center;gap:72px;" data-stack data-tightstack-mobile data-pm>
     <div style="flex:0 0 400px;position:relative;" data-fm data-imagemobile>
       <div style="border-radius:28px;overflow:hidden;box-shadow:0 20px 56px rgba(143,47,104,.12);">
-        <image-slot id="sobre-foto" src="assets/sobre.webp" placeholder="Foto da Dra. Cristina Yang Young - ortodontista em Curitiba" shape="rect" style="width:100%;height:500px;display:block;" data-him></image-slot>
+        <img src="assets/sobre.webp" alt="Foto da Dra. Cristina Yang Young - ortodontista em Curitiba" style="width:100%;height:500px;display:block;object-fit:cover;" width="480" height="640" loading="lazy" decoding="async" data-him data-aboutimg>
       </div>
       <svg style="position:absolute;top:-24px;left:-28px;width:120px;height:120px;z-index:-1;opacity:.18;" viewBox="0 0 120 120" aria-hidden="true">
         <circle cx="60" cy="60" r="55" fill="none" stroke="#8F2F68" stroke-width="2"/>
@@ -420,29 +382,35 @@ a{text-decoration:none;color:inherit}
       <h2 style="font-size:34px;font-weight:800;color:#34252A;margin:0 0 14px;letter-spacing:-.02em;" data-h2m>Outros cuidados para o seu sorriso</h2>
       <p style="font-size:15px;line-height:1.72;color:#6C4C57;max-width:520px;margin:0 auto;">Além da ortodontia, a clínica oferece tratamentos complementares para a saúde bucal completa.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;" data-g2m>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
-        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/008-white-teeth.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px;align-items:stretch;" data-g2m data-treatment-grid>
+      <div style="grid-column:span 2;border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:320px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile data-treatment-card>
+        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/008-white-teeth.svg" alt="" width="22" height="22" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Clareamento dental</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Tratamento para clarear os dentes com segurança, respeitando a saúde do esmalte e a sensibilidade de cada paciente.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
-        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/009-implants.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
+      <div style="grid-column:span 2;border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:320px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile data-treatment-card>
+        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/009-implants.svg" alt="" width="22" height="22" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Implante dentário</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Solução para reabilitar dentes perdidos com naturalidade e funcionalidade, planejada de forma individualizada.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
-        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/004-dentist.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
+      <div style="grid-column:span 2;border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:320px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile data-treatment-card>
+        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/004-dentist.svg" alt="" width="22" height="22" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Odontologia preventiva</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Consultas periódicas, limpeza, avaliação e orientação para manter a saúde bucal ao longo do tempo.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
-      <div style="border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile>
-        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/015-doctor-3.svg" alt="" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
+      <div style="grid-column:2 / span 2;border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:320px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile data-treatment-card>
+        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/015-doctor-3.svg" alt="" width="22" height="22" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
         <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Harmonização orofacial</h3>
         <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Procedimentos faciais para harmonia e bem-estar, realizados com segurança e planejamento estético individualizado.</p>
+        <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+      </div>
+      <div style="grid-column:4 / span 2;border:1px solid #F2E4E8;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:320px;transition:border-color .2s,transform .2s;" style-hover="border-color:#E2BDC8;transform:translateY(-3px);" data-cardcenter-mobile data-treatment-card>
+        <div style="width:44px;height:44px;border-radius:12px;background:#F9F0F4;display:flex;align-items:center;justify-content:center;"><img src="assets/004-dentist.svg" alt="" width="22" height="22" style="width:22px;height:22px;filter:invert(41%) sepia(22%) saturate(910%) hue-rotate(286deg) brightness(90%) contrast(88%);" loading="lazy"></div>
+        <h3 style="font-size:16px;font-weight:700;color:#34252A;margin:0;" data-h3m>Tratamento de canal</h3>
+        <p style="font-size:14px;line-height:1.65;color:#6C4C57;margin:0;flex:1;">Cuidado indicado para preservar o dente comprometido, aliviar a dor e tratar infecções com segurança e planejamento adequado.</p>
         <a href="{{ WA }}" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:#8F2F68;display:inline-flex;align-items:center;gap:4px;transition:gap .18s;" style-hover="gap:8px;">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
       </div>
     </div>
@@ -457,9 +425,9 @@ a{text-decoration:none;color:inherit}
       <p style="font-size:15px;line-height:1.72;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;">Cada detalhe do consultório foi pensado para oferecer uma experiência tranquila, segura e humanizada - desde o primeiro contato até o acompanhamento do tratamento.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" data-g1m>
-      <div style="border-radius:20px;overflow:hidden;"><image-slot id="espaco-1" src="assets/clinica1.jpg" placeholder="Foto 1 do consultório - recepção ou sala de espera" shape="rect" style="width:100%;height:280px;display:block;" loading="lazy"></image-slot></div>
-      <div style="border-radius:20px;overflow:hidden;"><image-slot id="espaco-2" src="assets/clinica2.jpg" placeholder="Foto 2 do consultório - cadeira odontológica" shape="rect" style="width:100%;height:280px;display:block;" loading="lazy"></image-slot></div>
-      <div style="border-radius:20px;overflow:hidden;"><image-slot id="espaco-3" src="assets/clinica3.jpg" placeholder="Foto 3 - fachada ou área externa do consultório" shape="rect" style="width:100%;height:280px;display:block;" loading="lazy"></image-slot></div>
+      <div style="border-radius:20px;overflow:hidden;"><img src="assets/clinica1.jpg" alt="Foto 1 do consultório - recepção ou sala de espera" style="width:100%;height:280px;display:block;object-fit:cover;" width="768" height="576" loading="lazy" decoding="async"></div>
+      <div style="border-radius:20px;overflow:hidden;"><img src="assets/clinica2.jpg" alt="Foto 2 do consultório - cadeira odontológica" style="width:100%;height:280px;display:block;object-fit:cover;" width="960" height="720" loading="lazy" decoding="async"></div>
+      <div style="border-radius:20px;overflow:hidden;"><img src="assets/clinica3.jpg" alt="Foto 3 - fachada ou área externa do consultório" style="width:100%;height:280px;display:block;object-fit:cover;" width="768" height="576" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -599,18 +567,19 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </section>
+</main>
 
 <footer style="background:#2A1A20;" data-pbm>
   <div style="max-width:1200px;margin:0 auto;padding:72px 40px 40px;" data-spm>
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;" data-g2m data-footerm>
       <div>
-        <img src="assets/logo.png" alt="Logo Dra. Cristina Yang Young" style="height:88px;width:auto;margin-bottom:20px;border-radius:8px;" loading="lazy" data-footerlogo>
-        <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);margin:0 0 20px;max-width:280px;">Odontologia e Ortodontia no bairro Sítio Cercado em Curitiba. Atendimento humanizado desde 2006.</p>
+        <img src="assets/logo.png" alt="Logo Dra. Cristina Yang Young" style="height:88px;width:auto;margin-bottom:20px;border-radius:8px;" width="512" height="512" loading="lazy" decoding="async" data-footerlogo>
+        <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.72);margin:0 0 20px;max-width:280px;">Odontologia e Ortodontia no bairro Sítio Cercado em Curitiba. Atendimento humanizado desde 2006.</p>
         <div style="display:flex;gap:12px;" data-footersocial>
-          <a href="https://www.instagram.com/dracristinayangyoung" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:background .18s;" style-hover="background:#8F2F68;">
+          <a href="https://www.instagram.com/dracristinayangyoung" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);transition:background .18s;" style-hover="background:#8F2F68;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="https://www.facebook.com/dracristinayangyoung" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:background .18s;" style-hover="background:#8F2F68;">
+          <a href="https://www.facebook.com/dracristinayangyoung" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);transition:background .18s;" style-hover="background:#8F2F68;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
@@ -618,37 +587,37 @@ a{text-decoration:none;color:inherit}
       <div>
         <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#E2BDC8;text-transform:uppercase;margin-bottom:20px;">Navegação</div>
         <nav style="display:flex;flex-direction:column;gap:10px;">
-          <a href="#inicio" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">Início</a>
-          <a href="#ortodontia" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">Ortodontia</a>
-          <a href="#tratamentos" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">Tratamentos</a>
-          <a href="#sobre" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">Sobre</a>
-          <a href="#depoimentos" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">Depoimentos</a>
-          <a href="#faq" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">FAQ</a>
-          <a href="javascript:void(0)" style="font-size:14px;color:rgba(255,255,255,.55);cursor:default;transition:color .18s;" style-hover="color:#E2BDC8;">Blog</a>
+          <a href="#inicio" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">Início</a>
+          <a href="#ortodontia" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">Ortodontia</a>
+          <a href="#tratamentos" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">Tratamentos</a>
+          <a href="#sobre" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">Sobre</a>
+          <a href="#depoimentos" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">Depoimentos</a>
+          <a href="#faq" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">FAQ</a>
+          <span aria-disabled="true" style="font-size:14px;color:rgba(255,255,255,.72);cursor:default;">Blog</span>
         </nav>
       </div>
       <div>
         <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#E2BDC8;text-transform:uppercase;margin-bottom:20px;">Contato</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="tel:+554132897652" style="font-size:14px;color:rgba(255,255,255,.55);transition:color .18s;" style-hover="color:#E2BDC8;">(41) 3289-7652</a>
-          <span style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;">R. Ourizona, 2200<br>Sítio Cercado<br>Curitiba - PR</span>
+          <a href="tel:+554132897652" style="font-size:14px;color:rgba(255,255,255,.72);transition:color .18s;" style-hover="color:#E2BDC8;">(41) 3289-7652</a>
+          <span style="font-size:13px;color:rgba(255,255,255,.64);line-height:1.6;">R. Ourizona, 2200<br>Sítio Cercado<br>Curitiba - PR</span>
         </div>
       </div>
       <div>
         <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#E2BDC8;text-transform:uppercase;margin-bottom:20px;">Informações</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <span style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;">Responsável Técnica:<br>Cristina Yang Young<br>CROPR 14.928</span>
+          <span style="font-size:13px;color:rgba(255,255,255,.64);line-height:1.6;">Responsável Técnica:<br>Cristina Yang Young<br>CROPR 14.928</span>
         </div>
       </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;" data-footerbottom>
-      <span style="font-size:12px;color:rgba(255,255,255,.3);">© 2025 Dra. Cristina Yang Young - Todos os direitos reservados.</span>
-      <span style="font-size:12px;color:rgba(255,255,255,.3);">Desenvolvido por SuperDental</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.5);">© 2025 Dra. Cristina Yang Young - Todos os direitos reservados.</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.5);">Desenvolvido por SuperDental</span>
     </div>
   </div>
 </footer>
 
-<a href="{{ WA }}" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp" style="position:fixed;bottom:90px;right:24px;z-index:900;width:56px;height:56px;border-radius:50%;background:#7EB457;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(126,180,87,.4);animation:pulseWA 2.5s ease infinite;transition:transform .18s;" style-hover="transform:scale(1.1);" data-floatwa data-hide-mobile>
+<a href="{{ WA }}" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp" style="position:fixed;bottom:90px;right:24px;z-index:900;width:56px;height:56px;border-radius:50%;background:#7EB457;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(126,180,87,.4);transition:transform .18s;" style-hover="transform:scale(1.1);" data-floatwa data-hide-mobile>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -657,7 +626,7 @@ a{text-decoration:none;color:inherit}
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Agendar pelo WhatsApp
   </a>
-  <a href="tel:+554132897652" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:13px 16px;border-radius:50px;border:2px solid #E2BDC8;color:#8F2F68;">
+  <a href="tel:+554132897652" aria-label="Ligar para a clínica" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:13px 16px;border-radius:50px;border:2px solid #E2BDC8;color:#8F2F68;">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
   </a>
 </div>
@@ -680,14 +649,10 @@ class Component extends DCLogic {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     this._scrollCleanup = () => window.removeEventListener('scroll', onScroll);
-    this._testimonialTimer = window.setInterval(() => {
-      this.setState(s => ({ testimonialIndex: ((s.testimonialIndex || 0) + 1) % 6 }));
-    }, 4500);
   }
 
   componentWillUnmount() {
     if (this._scrollCleanup) this._scrollCleanup();
-    if (this._testimonialTimer) window.clearInterval(this._testimonialTimer);
   }
 
   renderVals() {
@@ -702,7 +667,6 @@ class Component extends DCLogic {
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
       boxShadow: scrolled ? '0 2px 28px rgba(143,47,104,0.09)' : '0 1px 0 rgba(242,228,232,0.8)',
-      transition: 'all 0.3s ease',
     };
 
     const makeFaq = (i, q, a) => ({
@@ -711,7 +675,6 @@ class Component extends DCLogic {
       toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? null : i })),
       chevronStyle: {
         transform: faqOpen === i ? 'rotate(180deg)' : 'rotate(0deg)',
-        transition: 'transform 0.3s ease',
         color: faqOpen === i ? '#8F2F68' : '#A6748D',
         flexShrink: 0,
         display: 'flex',
@@ -720,7 +683,6 @@ class Component extends DCLogic {
         maxHeight: faqOpen === i ? '320px' : '0px',
         overflow: 'hidden',
         opacity: faqOpen === i ? 1 : 0,
-        transition: 'max-height 0.35s ease, opacity 0.25s ease',
       },
     });
 
@@ -749,8 +711,8 @@ class Component extends DCLogic {
       ariaLabel: `Ir para avaliação ${i + 1}`,
       go: () => this.setState({ testimonialIndex: i }),
       style: i === testimonialIndex
-        ? 'width:28px;height:10px;border-radius:999px;border:none;background:#8F2F68;cursor:pointer;transition:all .2s;'
-        : 'width:10px;height:10px;border-radius:50%;border:none;background:#D8B7C5;cursor:pointer;transition:all .2s;'
+        ? 'width:44px;height:44px;border-radius:999px;border:none;background:linear-gradient(#8F2F68,#8F2F68) center/28px 10px no-repeat transparent;cursor:pointer;'
+        : 'width:44px;height:44px;border-radius:999px;border:none;background:radial-gradient(circle,#D8B7C5 0 5px,transparent 6px) center/10px 10px no-repeat transparent;cursor:pointer;'
     }));
 
     return {
@@ -769,173 +731,6 @@ class Component extends DCLogic {
   }
 }
 
-</script>
-<script>
-(() => {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let intersectionObserver = null;
-  let mutationObserver = null;
-  let mutationFrame = null;
-
-  const animationGroups = [
-    { selector: 'section h1, section h2, section h3, footer h1, footer h2, footer h3', type: 'heading' },
-    { selector: 'section p, footer p', type: 'text' },
-    { selector: 'section image-slot, section iframe, section img[alt]:not([alt=""]):not([src*="logo"])', type: 'media' },
-    { selector: 'section [data-g1m] > div, section [data-g2m] > div, section [data-g3m] > div, section [data-spm] > div, section [data-testimonials] > div, footer [data-footerm] > div', type: 'block' },
-    { selector: 'section a[style*="border-radius:50px"], section button, footer a[style*="border-radius:50px"]', type: 'button' },
-    { selector: 'section li, footer nav a, footer span', type: 'item' },
-  ];
-
-  const sectionEffectCycle = [
-    { heading: 'fade-up', block: 'fade-up', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
-    { heading: 'slide-right', block: 'slide-right', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
-    { heading: 'slide-left', block: 'slide-left', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
-    { heading: 'fade-up', block: 'slide-right', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
-    { heading: 'fade-up', block: 'slide-left', text: 'fade-in', media: 'zoom-in', button: 'fade-up', item: 'fade-in' },
-  ];
-
-  const staggerGroups = [
-    'section ul',
-    'section ol',
-    '[data-spm]',
-    '[data-g1m]',
-    '[data-g2m]',
-    '[data-g3m]',
-    '[data-testimonials]',
-    'footer nav',
-    'footer [data-footerm]',
-  ];
-
-  function getSectionIndex(element) {
-    const section = element.closest('section, footer');
-    if (!section) return 0;
-
-    const sections = Array.from(document.querySelectorAll('section, footer'));
-    const index = sections.indexOf(section);
-    return index >= 0 ? index : 0;
-  }
-
-  function getEffectForType(element, type) {
-    const sectionIndex = getSectionIndex(element);
-    const sectionProfile = sectionEffectCycle[sectionIndex % sectionEffectCycle.length];
-    return sectionProfile[type] || 'fade-up';
-  }
-
-  function getEffectForElement(element) {
-    if (element.matches('image-slot, iframe, img')) return getEffectForType(element, 'media');
-    if (element.matches('li, span, nav a')) return getEffectForType(element, 'item');
-    if (element.matches('p')) return getEffectForType(element, 'text');
-    if (element.matches('a, button')) return getEffectForType(element, 'button');
-    if (element.matches('h1, h2, h3')) return getEffectForType(element, 'heading');
-    return getEffectForType(element, 'block');
-  }
-
-  function registerAnimatedElement(element, effect) {
-    if (!(element instanceof Element) || element.dataset.scrollRevealReady === 'true') return;
-
-    element.dataset.scrollRevealReady = 'true';
-    element.classList.add('animate-on-scroll', effect);
-
-    if (prefersReducedMotion.matches) {
-      element.classList.add('is-visible');
-      return;
-    }
-
-    if (intersectionObserver) {
-      intersectionObserver.observe(element);
-    }
-  }
-
-  function observePendingAnimatedElements() {
-    if (!intersectionObserver || prefersReducedMotion.matches) return;
-
-    document.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach((element) => {
-      intersectionObserver.observe(element);
-    });
-  }
-
-  function applyAnimations(root = document) {
-    animationGroups.forEach(({ selector, type }) => {
-      root.querySelectorAll(selector).forEach((element) => registerAnimatedElement(element, getEffectForType(element, type)));
-    });
-
-    staggerGroups.forEach((selector) => {
-      root.querySelectorAll(selector).forEach((group) => {
-        const items = Array.from(group.children).filter((child) => child instanceof Element);
-
-        items.forEach((item, index) => {
-          if (!item.dataset.scrollRevealReady) {
-            registerAnimatedElement(item, getEffectForElement(item));
-          }
-
-          item.classList.add('stagger-item');
-          item.style.setProperty('--stagger-delay', `${Math.min(index, 8) * 65}ms`);
-        });
-      });
-    });
-  }
-
-  function revealImmediately() {
-    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
-      element.classList.add('is-visible');
-    });
-  }
-
-  function initObservers() {
-    if (prefersReducedMotion.matches) {
-      revealImmediately();
-      return;
-    }
-
-    intersectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add('is-visible');
-        intersectionObserver.unobserve(entry.target);
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -6% 0px',
-    });
-
-    applyAnimations();
-    observePendingAnimatedElements();
-
-    mutationObserver = new MutationObserver(() => {
-      if (mutationFrame) return;
-
-      mutationFrame = window.requestAnimationFrame(() => {
-        mutationFrame = null;
-        applyAnimations();
-        observePendingAnimatedElements();
-      });
-    });
-
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-  }
-
-  function bootstrapScrollAnimations() {
-    initObservers();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootstrapScrollAnimations, { once: true });
-  } else {
-    bootstrapScrollAnimations();
-  }
-
-  prefersReducedMotion.addEventListener('change', (event) => {
-    if (!event.matches) return;
-
-    if (intersectionObserver) intersectionObserver.disconnect();
-    if (mutationObserver) mutationObserver.disconnect();
-    revealImmediately();
-  });
-})();
 </script>
 </body>
 </html>
